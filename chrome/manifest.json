@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "VSCode Copy Gpt",
-  "description": "Connect with it's corresponding VSCode extension to exchange messages with chatgpt directly from the IDE",
+  "name": "VSCode Chatgpt Easy Copy",
+  "description": "Directly copy selected code or files from vscode to a chatgpt tab in browser",
   "version": "0.1.0",
   "icons": {
     "16": "icons/up-arrow-16.png",

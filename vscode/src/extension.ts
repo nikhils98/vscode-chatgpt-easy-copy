@@ -8,17 +8,17 @@ export function activate(context: vscode.ExtensionContext) {
   startWebSocketServer();
 
   const copyTextCommand = vscode.commands.registerCommand(
-    "copilotAtHome.copyText",
+    "vscode-chatgpt-easy-copy.copyText",
     () => runCopyTextCommand({ type: "copy" })
   );
 
   const copyTextAndSendCommand = vscode.commands.registerCommand(
-    "copilotAtHome.copyTextAndSend",
+    "vscode-chatgpt-easy-copy.copyTextAndSend",
     () => runCopyTextCommand({ type: "copyAndSend" })
   );
 
   const copyFileCommand = vscode.commands.registerCommand(
-    "copilotAtHome.copyFile",
+    "vscode-chatgpt-easy-copy.copyFile",
     (...args: any[]) => {
       if (!args[1]?.length) {
         return;

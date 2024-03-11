@@ -1,8 +1,8 @@
 {
-  "name": "copilot-at-home-vscode",
+  "name": "vscode-chatgpt-easy-copy",
   "publisher": "long_hair_programmer",
-  "displayName": "Copilot At Home",
-  "description": "Use chatgpt for coding without leaving vscode",
+  "displayName": "VSCode Chatgpt Easy Copy",
+  "description": "Directly copy selected code or files from vscode to a chatgpt tab in browser",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.74.0"
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/copilot-at-home/vscode-extension.git"
+    "url": "https://github.com/nikhils98/vscode-chatgpt-easy-copy"
   },
   "license": "MIT",
   "activationEvents": [
@@ -26,35 +26,35 @@
   "contributes": {
     "commands": [
       {
-        "command": "copilotAtHome.copyText",
+        "command": "vscode-chatgpt-easy-copy.copyText",
         "title": "Copy text",
-        "category": "VSCode Copy Gpt"
+        "category": "VSCode Chatgpt Easy Copy"
       },
       {
-        "command": "copilotAtHome.copyTextAndSend",
+        "command": "vscode-chatgpt-easy-copy.copyTextAndSend",
         "title": "Copy text and send",
-        "category": "VSCode Copy Gpt"
+        "category": "VSCode Chatgpt Easy Copy"
       },
       {
-        "command": "copilotAtHome.copyFile",
+        "command": "vscode-chatgpt-easy-copy.copyFile",
         "title": "Copy file",
-        "category": "VSCode Copy Gpt"
+        "category": "VSCode Chatgpt Easy Copy"
       },
       {
-        "command": "copilotAtHome.copyFileAndSend",
+        "command": "vscode-chatgpt-easy-copy.copyFileAndSend",
         "title": "Copy file and send",
-        "category": "VSCode Copy Gpt"
+        "category": "VSCode Chatgpt Easy Copy"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "copilotAtHome.copyFile",
-          "group": "VSCode Copy Gpt"
+          "command": "vscode-chatgpt-easy-copy.copyFile",
+          "group": "VSCode Chatgpt Easy Copy"
         },
         {
-          "command": "copilotAtHome.copyFileAndSend",
-          "group": "VSCode Copy Gpt"
+          "command": "vscode-chatgpt-easy-copy.copyFileAndSend",
+          "group": "VSCode Chatgpt Easy Copy"
         }
       ]
     }
