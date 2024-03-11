@@ -1,0 +1,89 @@
+{
+  "name": "copilot-at-home-vscode",
+  "publisher": "long_hair_programmer",
+  "displayName": "Copilot At Home",
+  "description": "Use chatgpt for coding without leaving vscode",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "author": {
+    "name": "long_hair_programmer",
+    "email": "nikhil.satiani@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/copilot-at-home/vscode-extension.git"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copilotAtHome.copyText",
+        "title": "Copy text",
+        "category": "VSCode Copy Gpt"
+      },
+      {
+        "command": "copilotAtHome.copyTextAndSend",
+        "title": "Copy text and send",
+        "category": "VSCode Copy Gpt"
+      },
+      {
+        "command": "copilotAtHome.copyFile",
+        "title": "Copy file",
+        "category": "VSCode Copy Gpt"
+      },
+      {
+        "command": "copilotAtHome.copyFileAndSend",
+        "title": "Copy file and send",
+        "category": "VSCode Copy Gpt"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "copilotAtHome.copyFile",
+          "group": "VSCode Copy Gpt"
+        },
+        {
+          "command": "copilotAtHome.copyFileAndSend",
+          "group": "VSCode Copy Gpt"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "node ./esbuild.js",
+    "package": "npm run env NODE_ENV=production && node ./esbuild.js",
+    "watch": "node ./esbuild.js --watch",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.74.0",
+    "@types/vscode-webview": "^1.57.5",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "esbuild": "^0.16.17",
+    "esbuild-plugin-copy": "^2.1.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}
