@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { WebSocket, WebSocketServer } from "ws";
+import * as fs from "fs/promises";
 
 let wss: WebSocketServer;
 let wsClient: WebSocket | undefined;
@@ -19,18 +20,37 @@ export function activate(context: vscode.ExtensionContext) {
 
   const copyFileCommand = vscode.commands.registerCommand(
     "vscode-chatgpt-easy-copy.copyFile",
-    (...args: any[]) => {
-      if (!args[1]?.length) {
+    async (...args: any[]) => {
+      const selectedFileUris = (args[1] ?? []) as vscode.Uri[];
+
+      if (!selectedFileUris.length) {
         return;
       }
 
-      const uris = args[1] as vscode.Uri[];
-      //recursively copy files
+      runCopyFileCommand({ type: "copy", selectedFileUris });
+    }
+  );
+
+  const copyFileAndSendCommand = vscode.commands.registerCommand(
+    "vscode-chatgpt-easy-copy.copyFileAndSend",
+    async (...args: any[]) => {
+      const selectedFileUris = (args[1] ?? []) as vscode.Uri[];
+
+      if (!selectedFileUris.length) {
+        return;
+      }
+
+      runCopyFileCommand({ type: "copyAndSend", selectedFileUris });
     }
   );
 
   context.subscriptions.push(
-    ...[copyTextCommand, copyTextAndSendCommand, copyFileCommand]
+    ...[
+      copyTextCommand,
+      copyTextAndSendCommand,
+      copyFileCommand,
+      copyFileAndSendCommand,
+    ]
   );
 }
 
@@ -63,6 +83,28 @@ function runCopyTextCommand({ type }: Pick<Command, "type">) {
   }
 }
 
+async function runCopyFileCommand({
+  type,
+  selectedFileUris,
+}: Pick<Command, "type"> & { selectedFileUris: vscode.Uri[] }) {
+  const fileContents = await getFileContents(
+    selectedFileUris.map((uri) => uri.fsPath)
+  );
+
+  const content = fileContents.reduce(
+    (acc, cur, idx) =>
+      `${acc}${cur.path}\n${cur.content}${
+        idx === fileContents.length - 1 ? "" : "\n"
+      }`,
+    ""
+  );
+
+  runCommand({
+    type,
+    content,
+  });
+}
+
 function getSelectedTextFromEditor() {
   const editor = vscode.window.activeTextEditor;
   if (editor) {
@@ -81,4 +123,34 @@ function runCommand(command: Command) {
   }
 
   wsClient.send(JSON.stringify(command));
+}
+
+async function getFileContents(
+  paths: string[]
+): Promise<{ path: string; content: string }[]> {
+  const fileContents = await Promise.all(
+    paths.map((path) => getFileContent(path))
+  );
+  return fileContents.flat();
+}
+
+async function getFileContent(path: string) {
+  try {
+    const content = await fs.readFile(path, "utf-8");
+    return {
+      path,
+      content,
+    };
+  } catch (e) {
+    const dirEntries = await fs.readdir(path, {
+      recursive: true,
+      withFileTypes: true,
+    });
+
+    const filePaths = dirEntries
+      .filter((de) => de.isFile())
+      .map((de) => de.path + "\\" + de.name);
+
+    return getFileContents(filePaths);
+  }
 }
