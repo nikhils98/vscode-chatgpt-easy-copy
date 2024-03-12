@@ -1,12 +1,18 @@
 # Setup
 
-This extension is not yet published in the VS Code Marketplace but it can be installed manually with the following steps:
+## Visual Studio Marketplace
 
-## Download
+TBA
 
-Download the latest version of the package (.vsix) file from Releases
+## Manual
 
-## Installation
+### Download
+
+Download the latest version of the package (.vsix) file from Releases.
+
+### Installation
+
+There are two ways to install the .vsix file
 
 From Extensions view
 
@@ -18,30 +24,31 @@ OR
 Run the following command in terminal
 
 ```
-code --install-extension copilot-at-home-vscode-0.0.1.vsix
+code --install-extension vscode-chatgpt-easy-copy-0.0.1.vsix
 ```
 
-# Usage
+# How it works
 
-## Prerequisites
-
-1. Install the chromium extension.
-2. Run a tab of [chatgpt](https://chat.openai.com/).
-
-For more information check [chromium extension's readme](https://github.com/copilot-at-home/chromium-extension/blob/main/README.md) which also explains how both the extensions work to bring chatgpt like experience in vscode!
+This extension starts a websocket server at port 8765 on vscode startup and uses it to exchange commands with the chrome extension
 
 ## Commands
 
-These can be run from the command palette or assigned a keyboard shortcut from Preferences
+Commands can be run from the command palette or context menu (in the case of Copy File) and assigned a keyboard shortcut from Preferences.
 
-### Start or resume chat session
+Note all commands **append** to the content in the prompt textbox.
 
-This opens the chat panel and starts a websocket server which the chromium extension connects to. If a panel is already opened, it'll bring that in foreground.
+### Copy text
 
-Now you can start exchanging messages with chatgpt in vscode!
+This copies the selected text in chatgpt. You can modify it before sending the message
 
-### Copy text into chat
+### Copy text and send
 
-This copies the selected text in the prompt textbox in the chat panel. The chat panel must be opened for this to run.
+This copies the selected text and triggers the send button in chatgpt
 
-**Known issue**: The chat panel must be in foreground for copy to work. It can be opened in a different view column until the issue is resolved.
+### Copy file
+
+This copies the content of the selected file(s). Simply select the files in the explore and right click or open command pallete. You'll see commands to Copy file as well as Copy file and send. On selecting in one the commands, the file path and it's content will be copied over to chatgpt textbox.
+
+### Copy file and send
+
+Same as Copy file but it also triggers send button right away.

@@ -3,7 +3,7 @@
   "publisher": "long_hair_programmer",
   "displayName": "VSCode Chatgpt Easy Copy",
   "description": "Directly copy selected code or files from vscode to a chatgpt tab in browser",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.74.0"
   },
