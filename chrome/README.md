@@ -10,7 +10,7 @@ TBA
 
 1. Download the latest stable source code zip from Releases and unzip it.
 2. Go to the Extensions page in your browser and enable Developer mode.
-3. Click the Load Unpacked button and select the unzipped extension directory.
+3. Click the Load Unpacked button and select the **chrome** directory from the unzipped folder.
 4. Activate the extension if not active by default. Thats it!
 
 For more information check chrome's docs on [loading unpacked extensions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked).
