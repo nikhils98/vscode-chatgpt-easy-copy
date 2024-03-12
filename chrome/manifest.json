@@ -4,10 +4,10 @@
   "description": "Directly copy selected code or files from vscode to a chatgpt tab in browser",
   "version": "0.1.0",
   "icons": {
-    "16": "icons/up-arrow-16.png",
-    "32": "icons/up-arrow-32.png",
-    "64": "icons/up-arrow-64.png",
-    "128": "icons/up-arrow-128.png"
+    "16": "icons/arrow-16.png",
+    "32": "icons/arrow-32.png",
+    "64": "icons/arrow-64.png",
+    "128": "icons/arrow-128.png"
   },
   "content_scripts": [
     {
