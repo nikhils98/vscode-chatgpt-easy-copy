@@ -26,22 +26,22 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-chatgpt-easy-copy.copyText",
+        "command": "vscodeChatgptEasyCopy.copyText",
         "title": "Copy text",
         "category": "VSCode Chatgpt Easy Copy"
       },
       {
-        "command": "vscode-chatgpt-easy-copy.copyTextAndSend",
+        "command": "vscodeChatgptEasyCopy.copyTextAndSend",
         "title": "Copy text and send",
         "category": "VSCode Chatgpt Easy Copy"
       },
       {
-        "command": "vscode-chatgpt-easy-copy.copyFile",
+        "command": "vscodeChatgptEasyCopy.copyFile",
         "title": "Copy file",
         "category": "VSCode Chatgpt Easy Copy"
       },
       {
-        "command": "vscode-chatgpt-easy-copy.copyFileAndSend",
+        "command": "vscodeChatgptEasyCopy.copyFileAndSend",
         "title": "Copy file and send",
         "category": "VSCode Chatgpt Easy Copy"
       }
@@ -49,11 +49,11 @@
     "menus": {
       "explorer/context": [
         {
-          "command": "vscode-chatgpt-easy-copy.copyFile",
+          "command": "vscodeChatgptEasyCopy.copyFile",
           "group": "VSCode Chatgpt Easy Copy"
         },
         {
-          "command": "vscode-chatgpt-easy-copy.copyFileAndSend",
+          "command": "vscodeChatgptEasyCopy.copyFileAndSend",
           "group": "VSCode Chatgpt Easy Copy"
         }
       ]
