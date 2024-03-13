@@ -6,8 +6,8 @@ There are two components at play here: a [chrome extension](https://github.com/n
 
 ### Copy Text
 
-![Copy Text Demo](vscode/demo/copy-text.gif)
+![Copy Text Demo](demo/copy-text.gif)
 
 ### Copy File
 
-![Copy File Demo](vscode/demo/copy-file.gif)
+![Copy File Demo](demo/copy-file.gif)
