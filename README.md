@@ -59,3 +59,7 @@ For more information check chrome's docs on [loading unpacked extensions](https:
 ## Copy File
 
 ![Copy File Demo](demo/copy-file.gif)
+
+# Privacy Policy
+
+No user data is collected in either of the extensions
