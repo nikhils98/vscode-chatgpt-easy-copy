@@ -1,25 +1,14 @@
-# Setup
-
-This extension should ideally work in any Chromium based browser. It has been tested in Brave and Chrome
-
-## Chrome Web Store
-
-TBA
-
-## Manual Installation
-
-1. Download the latest stable source code zip from Releases and unzip it.
-2. Go to the Extensions page in your browser and enable Developer mode.
-3. Click the Load Unpacked button and select the **chrome** directory from the unzipped folder.
-4. Activate the extension if not active by default. Thats it!
-
-For more information check chrome's docs on [loading unpacked extensions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked).
+VSCode Chatgpt Easy Copy is a simple utility to make it slightly convenient to copy code/text and files from vscode into chatgpt's textarea using commands. There are two components in the utility - this chrome extension and a vscode extension. Both must be installed and running for it to work. The vscode counterpart can be installed from the extension marketplace or manually following the instructions [here](https://github.com/nikhils98/vscode-chatgpt-easy-copy/tree/main)
 
 # How it works?
 
+The vscode extension initializes a websocket server at port 8765 on startup which the chrome extension connects to. On execution of a command, the selected text or contents of file(s) are sent to the chrome extension, via websocket, which manipulates chatgpt's DOM to input in the prompt textarea and send.
+
+More information about the vscode extension can be found [here](https://github.com/nikhils98/vscode-chatgpt-easy-copy/tree/main/vscode).
+
 ## Service Worker
 
-This is where the crux of the logic resides; a background script managing the websocket connection to the vscode extension and responsible for injecting a function to manipulate chatgpt's DOM when a command is received.
+This is where the crux of the logic resides for the chrome extension. It's a background script managing the websocket connection to the vscode extension and responsible for injecting a function to manipulate chatgpt's DOM when a command is received.
 
 It uses [chrome's scripting api](https://developer.chrome.com/docs/extensions/reference/api/scripting#description) to inject the function in runtime and requires host permissions for chatgpt to do so.
 
