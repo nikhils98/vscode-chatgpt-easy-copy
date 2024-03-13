@@ -39,16 +39,22 @@ Note all commands **append** to the content in the prompt textbox.
 
 ### Copy text
 
-This copies the selected text in chatgpt. You can modify it before sending the message
+Copies the selected text in chatgpt. You can modify it before sending the message
 
 ### Copy text and send
 
-This copies the selected text and triggers the send button in chatgpt
+Copies the selected text and triggers the send button in chatgpt
+
+![Copy Text Demo](demo/copy-text.gif)
 
 ### Copy file
 
-This copies the content of the selected file(s). Simply select the files in the explore and right click or open command pallete. You'll see commands to Copy file as well as Copy file and send. On selecting in one the commands, the file path and it's content will be copied over to chatgpt textbox.
+Copies the content of the selected file(s). Simply select a file or multiple files in the explorer and right click or open command palette. Choose one of `Copy file` or `Copy file and send` on which the file paths and their contents will be copied over to chatgpt textbox.
+
+If you select a directory then all the files inside will be recursively copied over.
 
 ### Copy file and send
 
-Same as Copy file but it also triggers send button right away.
+Same as `Copy file` but it also triggers send button right away.
+
+![Copy File Demo](demo/copy-file.gif)
