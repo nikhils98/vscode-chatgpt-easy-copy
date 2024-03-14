@@ -39,7 +39,7 @@ Ideally it should work in any Chromium based browser. It's been tested in Brave 
 
 ### Chrome Web Store
 
-TBA
+https://chromewebstore.google.com/detail/vscode-chatgpt-easy-copy/npfadfmeapkbafndfhaodpehcibibijg
 
 ### Manual
 
